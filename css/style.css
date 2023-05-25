@@ -6100,11 +6100,11 @@ a.close.disabled {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #c17a74 !important;
+  background-color: #5e9cff !important;
 }
 
 .bg-secondary {
-  background-color: #EDF1FF !important;
+  background-color: #5e9cff !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -9268,7 +9268,7 @@ button.bg-dark:focus {
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #ba6a62 !important;
+  color: #5e9cff !important;
 }
 
 .text-secondary {
@@ -9276,7 +9276,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
-  color: #a1b6ff !important;
+  color: #5e9cff !important;
 }
 
 .text-success {
@@ -9557,7 +9557,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .product-item .btn:hover {
-  color: #D19C97 !important;
+  color: #5e91ff !important;
 }
 
 .contact-form .help-block ul {
