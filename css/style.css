@@ -3037,9 +3037,10 @@ input[type="button"].btn-block {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(146, 146, 146, 0.555);
+  border-top: 1px solid rgba(146, 146, 146, 0.555);
+  
 }
-
 .dropdown-menu-left {
   right: auto;
   left: 0;
@@ -6102,9 +6103,18 @@ button.bg-primary:hover,
 button.bg-primary:focus {
   background-color: #5e9cff !important;
 }
-
+.text-banner{
+  color:  yellow !important;
+  font-size: 30px;
+}
+.text-second-banner{
+  color:  white !important;
+}
+.bg-banner{
+  background-color:  #a3cdff !important;
+}
 .bg-secondary {
-  background-color: #5e9cff !important;
+  background-color: #97d8e6 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
