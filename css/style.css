@@ -3215,7 +3215,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #D19C97;
+  background-color:  #4a83ff;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -6104,20 +6104,32 @@ button.bg-primary:focus {
   background-color: #5e9cff !important;
 }
 .text-banner{
-  color:  yellow !important;
+  color:  black !important;
+  opacity: 0.7;
   font-size: 30px;
+  text-shadow: 1px 1px 80px black;
 }
 .text-second-banner{
   color:  white !important;
+  text-shadow: 1px 1px 70px black;
+  
 }
 .bg-banner{
   background-color:  #a3cdff !important;
+}
+.bg-banner1{
+  background-color:  #ffd1a3 !important;
+}
+.bg-banner2{
+  background-color:  #a3ffcb !important;
+  
 }
 .bg-secondary {
   background-color: #97d8e6 !important;
 }
 .bg-footer{
-  background-color: #d1e3ff !important;
+  border-top: 2px solid gray;
+  background-color: #ffffff !important;
 }
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
