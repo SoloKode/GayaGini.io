@@ -134,7 +134,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
+                            <a href="#tengah-halaman" class="nav-item nav-link text-center">Belanja</a>
                             <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
@@ -225,7 +225,7 @@
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">Kategori</span></h2>
+            <h2 id="tengah-halaman"class="section-title px-5"><span class="px-2">Kategori</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-4 col-md-6 pb-1">
@@ -302,11 +302,11 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="img/pht/31.png" alt="">
+                    <a href="shop.php?kategori=aksesoris" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/aksesoris.png" alt="">
                       
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">Celana Olahraga</h5>
+                    <h5 class="font-weight-semi-bold m-0">Aksesoris</h5>
                
                 </div>
             </div>
@@ -359,7 +359,7 @@
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal3">
-                        <img class="img-fluid" src="img/pht/9.png" alt="">
+                        <img class="img-fluid" src="img/jogg.png" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Celana Olahraga</h5>
                     <div class="modal fade" id="dialogModal3" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">

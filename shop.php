@@ -200,6 +200,7 @@
                 $idbarang = $result['idbarang'];
                 $gambar = $idbarang . ".png";
                 $gambarPath = "produk/" . $gambar;
+                $harga = number_format($result['hargabarang'], 0, ',', '.');
 
                 // Periksa apakah file gambar ada
                 if (file_exists($gambarPath)) {
@@ -217,7 +218,7 @@
                     echo '<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">';        
                     echo '<h6 class="text-truncate mb-3">'.$result['namabarang'].'</h6>';            
                     echo '<div class="d-flex justify-content-center">';        
-                    echo '<h6>IDR '.$result['hargabarang'].'</h6>';              
+                    echo '<h6>RP '.$harga.'</h6>';              
                     echo '</div>';           
                     echo '</div>';       
                     echo '<div class="card-footer d-flex justify-content-between bg-light border">';        
@@ -234,7 +235,7 @@
                     echo '<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">';        
                     echo '<h6 class="text-truncate mb-3">'.$result['namabarang'].'</h6>';            
                     echo '<div class="d-flex justify-content-center">';        
-                    echo '<h6>IDR '.$result['hargabarang'].'</h6>';              
+                    echo '<h6>RP '.$harga.'</h6>';              
                     echo '</div>';           
                     echo '</div>';       
                     echo '<div class="card-footer d-flex justify-content-between bg-light border">';        
@@ -260,9 +261,9 @@
                               </a>
                             </li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
+                            <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                            <li class="page-item disabled">
                               <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Selanjutnya</span>
