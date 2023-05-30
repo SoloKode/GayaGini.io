@@ -1,9 +1,27 @@
+<?php
+    // Memeriksa apakah parameter kategori telah diterima
+    if(isset($_GET['kategori'])){
+        $kategori = $_GET['kategori'];
+    }
+    else {
+        die ("Error. No Category Selected!");    
+    }
+    
+    // Menghubungkan ke database
+    include "connect.php"; // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
+
+    // Mengambil data barang berdasarkan kategori
+    $query = mysqli_query($connect, "SELECT * FROM databarang WHERE kategori='$kategori' LIMIT 9");
+
+    // Mengecek jumlah barang yang ditemukan
+    $rowCount = mysqli_num_rows($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>GayaGini Fashion Store</title>
+    <title>GayaGini - <?php echo $kategori ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -160,183 +178,78 @@
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-4 mt-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Pilih Gaya Kamu</h1>
+            <h1 class="font-weight-semi-bold text-uppercase mb-3"><?php echo $kategori; ?></h1>
             <div class="d-inline-flex">
-                <p class="m-0"><a href="">Beranda</a></p>
-                <p class="m-0 px-2">-</p>
-                <p class="m-0"></p>
+                <p class="m-0 text-center"><a href="index.php">Beranda</a></p>
             </div>
         </div>
     </div>
     <!-- Page Header End -->
 
 <center>
+
+    
     <!-- Shop Start -->
     <div class="container-fluid pt-2">
-       
+    <div class="col-lg-9 col-md-12">
+    <div class="row pb-3">
+    <?php
+        // Memeriksa apakah ada barang yang ditemukan
+        if ($rowCount > 0) {
+            while ($result = mysqli_fetch_array($query)) {
+                $idbarang = $result['idbarang'];
+                $gambar = $idbarang . ".png";
+                $gambarPath = "produk/" . $gambar;
 
+                // Periksa apakah file gambar ada
+                if (file_exists($gambarPath)) {
+                    // echo "<div class='barang'>";
+                    // echo "<img src='".$gambarPath."' alt='Gambar Barang'>";
+                    // echo "<h3>".$result['namabarang']."</h3>";
+                    // echo "<p>Harga: ".$result['hargabarang']."</p>";
+                    // echo "<a href='detail-barang.php?idbarang=".$idbarang."'>Detail</a>";
+                    // echo "</div>";
+                    echo '<div class="col-lg-4 col-md-6 col-sm-12 pb-1">';
+                    echo '<div class="card product-item border-0 mb-4">';    
+                    echo '<div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">';        
+                    echo '<img class="img-fluid w-100" src="'.$gambarPath.'" alt="">';            
+                    echo '</div>';        
+                    echo '<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">';        
+                    echo '<h6 class="text-truncate mb-3">'.$result['namabarang'].'</h6>';            
+                    echo '<div class="d-flex justify-content-center">';        
+                    echo '<h6>IDR '.$result['hargabarang'].'</h6>';              
+                    echo '</div>';           
+                    echo '</div>';       
+                    echo '<div class="card-footer d-flex justify-content-between bg-light border">';        
+                    echo '  <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';          
+                    echo '  <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>';          
+                    echo '  </div>';      
+                    echo '</div>';    
+                    echo '</div>';
+                } else {
+                    echo '<div class="col-lg-4 col-md-6 col-sm-12 pb-1">';
+                    echo '<div class="card product-item border-0 mb-4">';    
+                    echo '<div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">';
+                    echo '</div>';        
+                    echo '<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">';        
+                    echo '<h6 class="text-truncate mb-3">'.$result['namabarang'].'</h6>';            
+                    echo '<div class="d-flex justify-content-center">';        
+                    echo '<h6>IDR '.$result['hargabarang'].'</h6>';              
+                    echo '</div>';           
+                    echo '</div>';       
+                    echo '<div class="card-footer d-flex justify-content-between bg-light border">';        
+                    echo '  <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';          
+                    echo '  <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>';          
+                    echo '  </div>';      
+                    echo '</div>';    
+                    echo '</div>';
+                }
+            }
+        } else {
+            echo "<p>Tidak ada barang yang ditemukan dalam kategori ini.</p>";
+        }
+    ?>
             <!-- Shop Product Start -->
-            <div class="col-lg-9 col-md-12">
-                <div class="row pb-3">
-                    <div class="col-12 pb-1">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            
-                        
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/21.png" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/21.png" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/21.png" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                                <div class="d-flex justify-content-center">
-                                    <h6>IDR 123.000,00</h6><h6 class="text-muted ml-2"><del>IDR 123.000,00</del></h6>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>
-                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-12 pb-1">
                         <nav aria-label="Page navigation">
                           <ul class="pagination justify-content-center mb-3">
