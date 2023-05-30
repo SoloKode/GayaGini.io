@@ -230,10 +230,8 @@
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal">
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal">
                     <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                    </a>
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Kaos</h5>
                     
@@ -265,10 +263,8 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal1">
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal1">
                     <img class="img-fluid" src="img/pht/22.png" alt="" width="500" height="400">
-                    </a>   
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Kemeja</h5>
                     <div class="modal fade" id="dialogModal1" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
@@ -316,11 +312,11 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal2">
                         <img class="img-fluid" src="img/cat-3.jpg" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Sepatu</h5>
-                    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
+                    <div class="modal fade" id="dialogModal2" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -332,10 +328,10 @@
                             <div class="modal-body">
                                 <div class="row justify-content-center">
                                     <div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Pria" class="btn btn-primary btn-block rounded-pill text-light">Kaos Pria</a>
+                                        <a href="shop.php?kategori=Sepatu Pria" class="btn btn-primary btn-block rounded-pill text-light">Sepatu Pria</a>
                                     </div>
                                     <div   div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kaos Wanita</a>
+                                        <a href="shop.php?kategori=Sepatu Wanita" class="btn btn-primary btn-block rounded-pill text-light">Sepatu Wanita</a>
                                     </div>
                                 </div>
                             </div>
@@ -346,15 +342,15 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <a href="shop.php?kategori=Sandal" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="img/pht/9.png" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">Sendal</h5>
+                    <h5 class="font-weight-semi-bold m-0">Sandal</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <a href="shop.php?kategori=Celana Jeans Pria" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="img/pht/Celana Jeans Long Pants Denim - Slim Fit Laki Laki.png" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Celana Jeans</h5>
@@ -362,11 +358,11 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal3">
                         <img class="img-fluid" src="img/pht/9.png" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Celana Olahraga</h5>
-                    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
+                    <div class="modal fade" id="dialogModal3" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -378,10 +374,10 @@
                             <div class="modal-body">
                                 <div class="row justify-content-center">
                                     <div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Pria" class="btn btn-primary btn-block rounded-pill text-light">Kaos Pria</a>
+                                        <a href="shop.php?kategori=Celana Olahraga Pria" class="btn btn-primary btn-block rounded-pill text-light">Celana Olahraga Pria</a>
                                     </div>
                                     <div   div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kaos Wanita</a>
+                                        <a href="shop.php?kategori=Celana Olahraga Wanita" class="btn btn-primary btn-block rounded-pill text-light">Celana Olahraga Wanita</a>
                                     </div>
                                 </div>
                             </div>
