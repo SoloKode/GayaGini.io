@@ -1,8 +1,0 @@
-1. nomor (1) nama baju = Baju Mobil TOYOTA SUPRA MK4 FAST FURIOUS Rp79.999
-2. nomor (2) nama baju = Baju Mobil NISSAN SKYLINE R34 2 FAST 2 FURIOUS Rp79.999
-3. nomor (3) nama baju = Wush  Club T-shirt Rp48.650
-4. nomor (4) nama baju = NVSR T-Shirt Oversize 24s Black Wash Rp90.000
-5. nomor (5) nama baju = Kaos Distro Zirdigo V45 Rp49.300
-6. nomor (6) nama baju = NVSR Graphic T-Shirt 24s Poison Rp72.000
-7. nomor (7) nama baju = Washed Longsleeve Oversize 24s Rp140.000
-8. nomor (8) nama baju = Evil ABST Flow T-Shirt Rp51.489
