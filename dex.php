@@ -4,7 +4,7 @@
         <title>Untitled Document</title>
     </head>
     <body>
-    <center>
+    <!-- <center>
      <form method="post" class="form-user">		
           ID Barang         : <input type="text" name="idbarang"><br>
           Nama Barang       : <input type="text" name="namabarang"><br>
@@ -17,7 +17,7 @@
           <br>
           <button class="tombol-simpan">Simpan</button>
      </form>
-</center>
+</center> -->
 <hr>    
 
         <table align="center" border=1>
