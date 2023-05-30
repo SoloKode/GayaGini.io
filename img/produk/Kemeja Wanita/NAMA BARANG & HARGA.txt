@@ -1,0 +1,17 @@
+1. nomor (5, 5.1) nama baju = KEMEJA ZARA POPLINE Rp86.250
+
+2. nomor (1, 1.1) nama baju = HERITAGE REGULAR FIT SHIRT Rp243.000
+
+3. nomor (2, 2.1) nama baju = kemeja wanita crinkle Rp43.200 - Rp72.000
+
+4. nomor (6, 6.1/2/3) nama baju = KEMEJA RAYON LONG SHIRT Rp56.900
+
+5. nomor (10, 10.1) nama baju = Zara silk satin loose shirt Rp248.000
+
+6. nomor (11, 11.1) nama baju = Zara striped tie long sleeved Rp267.000
+
+7. nomor (12, 12.1/2) nama baju = shirt pocket long-sleeved Rp252.000
+
+8. nomor (14, 14.1) nama baju = autumn silky satin texture loose shirt Rp230.000
+
+9. nomor (15, 15.1/2) nama baju = ladies silk satin shirt Rp129.000
