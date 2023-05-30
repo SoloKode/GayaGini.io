@@ -266,12 +266,12 @@
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal">
+                    <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal1">
                     <img class="img-fluid" src="img/pht/22.png" alt="" width="500" height="400">
                     </a>   
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Kemeja</h5>
-                    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
+                    <div class="modal fade" id="dialogModal1" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -283,10 +283,10 @@
                             <div class="modal-body">
                                 <div class="row justify-content-center">
                                     <div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Pria" class="btn btn-primary btn-block rounded-pill text-light">Kaos Pria</a>
+                                        <a href="shop.php?kategori=Kemeja Pria" class="btn btn-primary btn-block rounded-pill text-light">Kemeja Pria</a>
                                     </div>
                                     <div   div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kaos Wanita</a>
+                                        <a href="shop.php?kategori=Kemeja Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kemeja Wanita</a>
                                     </div>
                                 </div>
                             </div>
@@ -297,68 +297,21 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <a href="shop.php?kategori=hoodie" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                        <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal">
-                    <img class="img-fluid" src="img/pht/22.png" alt="" width="500" height="400">
-                    </a>  
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Hoodie</h5>
-                    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                    <h5 class="modal-title" id="dialogTitle">Silakan pilih salah satu opsi:</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Pria" class="btn btn-primary btn-block rounded-pill text-light">Kaos Pria</a>
-                                    </div>
-                                    <div   div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kaos Wanita</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="img/pht/31.png" alt="">
-                        <a href="#" class="text-dark" data-toggle="modal" data-target="#dialogModal">
-                    <img class="img-fluid" src="img/pht/22.png" alt="" width="500" height="400">
-                    </a>  
+                      
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">Sweater</h5>
-                    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                    <h5 class="modal-title" id="dialogTitle">Silakan pilih salah satu opsi:</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Pria" class="btn btn-primary btn-block rounded-pill text-light">Kaos Pria</a>
-                                    </div>
-                                    <div   div class="col-6">
-                                        <a href="shop.php?kategori=Kaos Wanita" class="btn btn-primary btn-block rounded-pill text-light">Kaos Wanita</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <h5 class="font-weight-semi-bold m-0">Celana Olahraga</h5>
+               
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
