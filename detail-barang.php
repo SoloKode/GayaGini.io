@@ -11,7 +11,7 @@
     include "connect.php"; // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
 
     // Mengambil data barang berdasarkan idbarang
-    $query = mysqli_query($connect, "SELECT * FROM barang WHERE idbarang='$idbarang'");
+    $query = mysqli_query($connect, "SELECT * FROM databarang WHERE idbarang='$idbarang'");
     $result = mysqli_fetch_array($query);
 ?>
 <html>

@@ -133,17 +133,17 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.html" class="nav-item nav-link text-center">Belanja</a>
-                            <a href="detail.html" class="nav-item nav-link text-center">Detail</a>
+                            <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
+                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
+                            <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item text-center">Troli</a>
-                                    <a href="checkout.html" class="dropdown-item text-center">Checkout</a>
+                                    <a href="cart.php" class="dropdown-item text-center">Troli</a>
+                                    <a href="checkout.php" class="dropdown-item text-center">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link text-center">Kontak</a>
+                            <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
                             <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>

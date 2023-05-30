@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    $sql = mysqli_query($connect, "SELECT * FROM barang");
+    $sql = mysqli_query($connect, "SELECT * FROM databarang");
     $result = array();
     
     while ($row = mysqli_fetch_assoc($sql)) {
