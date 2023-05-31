@@ -24,8 +24,90 @@ function update() {
       });
     });
   }
-  
 
+  $(document).ready(function() {
+    $('.tombol-login').click(function(event) {
+      event.preventDefault(); // Mencegah form submit secara default
+  
+      // Mengambil nilai input
+      var username = $('#username').val();
+      var password = $('#password').val();
+  
+      // Mengirim data ke skrip PHP menggunakan AJAX
+      $.ajax({
+        type: 'POST',
+        url: 'check_login.php', // Ganti dengan lokasi skrip PHP yang mengecek login
+        data: { username: username, password: password },
+        success: function(response) {
+          if (response.success) {
+            // Jika login berhasil
+            alert(response.message);
+            // Lakukan tindakan selanjutnya, misalnya mengarahkan pengguna ke halaman lain
+            window.location.href = "index.php"
+          } else {
+            // Jika login gagal
+            alert('Login gagal: ' + response.message);
+          }
+        },
+        error: function() {
+          // Jika terjadi kesalahan saat melakukan AJAX
+          alert('Terjadi kesalahan saat memproses login');
+        }
+      });
+    });
+  });
+
+  $(document).ready(function() {
+    $('.tombol-lupa').click(function(event) {
+      event.preventDefault(); // Mencegah form submit secara default
+  
+      // Mengambil nilai input
+      var username = $('#username').val();
+      var email = $('#email').val();
+      var newpassword = $('#newpassword').val();
+      // Mengirim data ke skrip PHP menggunakan AJAX
+      $.ajax({
+        type: 'POST',
+        url: 'check_lupa.php', // Ganti dengan lokasi skrip PHP yang mengecek login
+        data: { username: username, email: email, newpassword: newpassword},
+        success: function(response) {
+          if (response.success) {
+            // Jika login berhasil
+            alert(response.message);
+            // Lakukan tindakan selanjutnya, misalnya mengarahkan pengguna ke halaman lain
+            // window.location.href = "index.php"
+          } else {
+            // Jika login gagal
+            alert('Verifikasi gagal: ' + response.message);
+          }
+        },
+        error: function() {
+          // Jika terjadi kesalahan saat melakukan AJAX
+          alert('Terjadi kesalahan saat memproses Verifikasi');
+        }
+      });
+    });
+  });
+
+$(".tombol-daftar").click(function(){
+    var data = $('.form-user').serialize();
+    $.ajax({
+      type: 'POST',
+      url: "registersql.php",
+      data: data,
+      success: function(response) {
+        if (response.success) {
+          alert(response.message);
+        } else {
+          alert("Gagal mendaftar: " + response.message);
+        }
+      },
+      error: function() {
+        alert('Daftar Gagal');
+      }
+    });
+  });
+  
 $(".tombol-simpan").click(function(){
 	var data = $('.form-user').serialize();
 	$.ajax({

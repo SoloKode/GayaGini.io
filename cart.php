@@ -129,8 +129,8 @@
                             <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
-                            <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
-                            <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
+                            <a href="login.php" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
+                            <a href="register.php" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
                         </div>
                     </div>
                 </nav>

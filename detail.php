@@ -146,8 +146,8 @@
                             <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
-                            <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
-                            <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
+                            <a href="login.php" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
+                            <a href="register.php" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
                         </div>
                     </div>
                 </nav>
@@ -282,7 +282,7 @@
                             
                             // Tampilkan opsi warna
                             foreach ($warnaArray as $color) {
-                                echo '<div class="custom-control custom-radio custom-control-inline">';
+                                echo '<div class="custom-control custom-radio custom-control-inline ">';
                                 echo '<input type="radio" class="custom-control-input" id="color-' . $color . '" name="color">';
                                 echo '<label class="custom-control-label" for="color-' . $color . '">' . $color . '</label>';
                                 echo '</div>';
@@ -329,54 +329,35 @@
         </div>
         <div class="row px-xl-5">
             <div class="col">
-                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                <div class="nav nav-tabs text-primary justify-content-center border-secondary mb-4">
+                    <a class="nav-item nav-link text-primary active" data-toggle="tab" href="#tab-pane-1">Deskripsi</a>
+                    <a class="nav-item nav-link text-primary" data-toggle="tab" href="#tab-pane-2">Information</a>
+                    <a class="nav-item nav-link text-primary" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
-                        <h4 class="mb-3">Product Description</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                        <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
-                    </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
-                        <h4 class="mb-3">Additional Information</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
+                        <h4 class="mb-3">Deskripsi Produk</h4>
+                        <p>
+                        Gaya yang trendi, fashion-forward, dan desain yang memikat menjadi ciri khas koleksi pakaian kami. Setiap produk kami dirancang dengan teliti untuk memberikan tampilan yang segar dan mengikuti tren terkini. Dari pakaian kasual yang santai hingga pakaian formal yang elegan, kami menawarkan beragam pilihan untuk berbagai suasana dan acara. Kami menggunakan bahan berkualitas tinggi dan mengutamakan pemilihan warna yang cerdas untuk menciptakan pakaian yang tidak hanya nyaman tetapi juga stylish. Temukan gaya unik Anda dalam koleksi kami yang beragam, yang memberikan sentuhan modern dan ekspresi pribadi pada setiap penampilan Anda.
+                        </p>
                         </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Informasi Tambahan</h4>
+                        <?php
+                        $informasi_tambahan = array(
+                            'gaya' => 'Gaya: Koleksi kami menawarkan gaya yang beragam, mulai dari gaya minimalis dan modern hingga gaya klasik yang elegan. Dengan pilihan yang luas, Anda dapat menemukan pakaian yang sesuai dengan gaya pribadi Anda.',
+                            'fashion' => 'Fashion: Kami selalu mengikuti tren terkini dalam industri fashion untuk memberikan Anda pakaian yang up-to-date dan stylish. Dari motif cetak hingga pola warna yang trendi, kami menyediakan produk yang akan membuat Anda tampil modis dan fashionable.',
+                            'desain' => 'Desain: Desain kami dipikirkan dengan detail dan inovatif. Mulai dari potongan yang pas hingga detail unik, setiap produk kami menampilkan desain yang menarik perhatian dan memberikan kesan yang istimewa.',
+                            'suasana' => 'Suasana: Tersedia pakaian untuk berbagai suasana, baik itu acara formal, santai, atau aktivitas olahraga. Dari pakaian resmi yang elegan hingga pakaian kasual yang nyaman, Anda dapat menemukan produk yang sesuai untuk setiap kesempatan.'
+                        );
+                        // Mengurutkan array berdasarkan kunci (tema)
+                        ksort($informasi_tambahan);
+
+                        // Mencetak informasi sesuai urutan tema
+                        foreach ($informasi_tambahan as $informasi) {
+                            echo '<p class="text-justify"><ul><li>' . $informasi . '</li></ul></p>';
+                        }
+                        ?>
                     </div>
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
