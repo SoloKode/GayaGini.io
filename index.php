@@ -388,8 +388,8 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="img/pht/9.png" alt="">
+                    <a href="shop.php?kategori=Rok Wanita" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/rok.png" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Rok Wanita</h5>
                 </div>
