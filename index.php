@@ -69,57 +69,39 @@
                 </a>
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <a href="" class="nav-item nav-link">Kaos</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown">Kaos<i class="fa fa-angle-down float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
+                                <a href="shop.php?kategori=Kaos Pria" class="dropdown-item">Kaos Pria</a>
+                                <a href="shop.php?kategori=Kaos Wanita" class="dropdown-item">Kaos Wanita</a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Kemeja<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Kemeja Pria</a>
-                                <a href="" class="dropdown-item">kemeja Wanita</a>
+                                <a href="shop.php?kategori=Kemeja Pria" class="dropdown-item">Kemeja Pria</a>
+                                <a href="shop.php?kategori=Kemeja Wanita" class="dropdown-item">Kemeja Wanita</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Hoodie<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Hoodie Pria</a>
-                                <a href="" class="dropdown-item">Hoodie Wanita</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Sweater<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sweater Pria</a>
-                                <a href="" class="dropdown-item">Sweater Wanita</a>
-                            </div>
-                        </div>
+                        <a href="shop.php?kategori=Hoodie" class="nav-item nav-link">Hoodie</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Sepatu<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sepatu Pria</a>
-                                <a href="" class="dropdown-item">Sepatu Wanita</a>
+                                <a href="shop.php?kategori=Sepatu Pria" class="dropdown-item">Sepatu Pria</a>
+                                <a href="shop.php?kategori=Sepatu Wanita" class="dropdown-item">Sepatu Wanita</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Sendal<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sendal Pria</a>
-                                <a href="" class="dropdown-item">Sendal Wanita</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Celana Jeans<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Celana Jeans Pria</a>
-                                <a href="" class="dropdown-item">Celana Jeans Wanita</a>
-                            </div>
-                        </div>
+                        <a href="shop.php?kategori=Sandal" class="nav-item nav-link">Sandal</a>
+                        <a href="shop.php?kategori=Celana Jeans Pria" class="nav-item nav-link">Celana Jeans</a>
+                        
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Celana Olahraga<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Celana Olahraga Pria</a>
-                                <a href="" class="dropdown-item">Celana Olahraga Wanita</a>
+                                <a href="shop.php?kategori=Celana Olahraga Pria" class="dropdown-item">Celana Olahraga Pria</a>
+                                <a href="shop.php?kategori=Celana Olahraga Wanita" class="dropdown-item">Celana Olahraga Wanita</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Rok Wanita</a>
+                        <a href="shop.php?kategori=Rok Wanita" class="nav-item nav-link">Rok Wanita</a>
                     </div>
                 </nav>
             </div>

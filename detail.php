@@ -1,3 +1,19 @@
+<?php
+    // Memeriksa apakah parameter idbarang telah diterima
+    if(isset($_GET['id'])){
+        $idbarang = $_GET['id'];
+    }
+    else {
+        die ("Error. No ID Selected!");    
+    }
+    
+    // Menghubungkan ke database
+    include "connect.php"; // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
+
+    // Mengambil data barang berdasarkan idbarang
+    $query = mysqli_query($connect, "SELECT * FROM databarang WHERE idbarang='$idbarang'");
+    $result = mysqli_fetch_array($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +42,7 @@
 </head>
 
 <body>
+
     <!-- Topbar Start -->
     <div class="container-fluid row align-items-center py-3 px-xl-5 mt-3 ">
         <div class="col-lg-3 d-none d-lg-block">
@@ -70,56 +87,39 @@
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                    <div class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown">Kaos<i class="fa fa-angle-down float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
+                                <a href="shop.php?kategori=Kaos Pria" class="dropdown-item">Kaos Pria</a>
+                                <a href="shop.php?kategori=Kaos Wanita" class="dropdown-item">Kaos Wanita</a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Kemeja<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Kemeja Pria</a>
-                                <a href="" class="dropdown-item">kemeja Wanita</a>
+                                <a href="shop.php?kategori=Kemeja Pria" class="dropdown-item">Kemeja Pria</a>
+                                <a href="shop.php?kategori=Kemeja Wanita" class="dropdown-item">Kemeja Wanita</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Hoodie<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Hoodie Pria</a>
-                                <a href="" class="dropdown-item">Hoodie Wanita</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Sweater<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sweater Pria</a>
-                                <a href="" class="dropdown-item">Sweater Wanita</a>
-                            </div>
-                        </div>
+                        <a href="shop.php?kategori=Hoodie" class="nav-item nav-link">Hoodie</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Sepatu<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sepatu Pria</a>
-                                <a href="" class="dropdown-item">Sepatu Wanita</a>
+                                <a href="shop.php?kategori=Sepatu Pria" class="dropdown-item">Sepatu Pria</a>
+                                <a href="shop.php?kategori=Sepatu Wanita" class="dropdown-item">Sepatu Wanita</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Sendal<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Sendal Pria</a>
-                                <a href="" class="dropdown-item">Sendal Wanita</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Celana Jeans<i class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Celana Jeans Pria</a>
-                                <a href="" class="dropdown-item">Celana Jeans Wanita</a>
-                            </div>
-                        </div>
+                        <a href="shop.php?kategori=Sandal" class="nav-item nav-link">Sandal</a>
+                        <a href="shop.php?kategori=Celana Jeans Pria" class="nav-item nav-link">Celana Jeans</a>
+                        
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Celana Olahraga<i class="fa fa-angle-down float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute border-0 rounded-0 w-100 m-0">
-                                <a href="" class="dropdown-item">Celana Olahraga Pria</a>
-                                <a href="" class="dropdown-item">Celana Olahraga Wanita</a>
+                                <a href="shop.php?kategori=Celana Olahraga Pria" class="dropdown-item">Celana Olahraga Pria</a>
+                                <a href="shop.php?kategori=Celana Olahraga Wanita" class="dropdown-item">Celana Olahraga Wanita</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Rok Wanita</a>
+                        <a href="shop.php?kategori=Rok Wanita" class="nav-item nav-link">Rok Wanita</a>
                     </div>
                 </nav>
             </div>
@@ -133,17 +133,17 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.html" class="nav-item nav-link text-center">Belanja</a>
-                            <a href="detail.html" class="nav-item nav-link text-center">Detail</a>
+                            <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
+                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
+                            <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item text-center">Troli</a>
-                                    <a href="checkout.html" class="dropdown-item text-center">Checkout</a>
+                                    <a href="cart.php" class="dropdown-item text-center">Troli</a>
+                                    <a href="checkout.php" class="dropdown-item text-center">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link text-center">Kontak</a>
+                            <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
                             <a href="" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
@@ -158,140 +158,171 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5">
+    <div class="container-fluid bg-secondary mb-1">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
             <div class="d-inline-flex">
-                <p class="m-0"><a href="">Home</a></p>
+                <?php 
+                echo '<p class="m-0"><a href="shop.php?kategori='.$result['kategori'].'">Kembali</a></p>';
+                ?>
                 <p class="m-0 px-2">-</p>
-                <p class="m-0">Shop Detail</p>
+                <p class="m-0"><?php echo $result['kategori']?></p>
             </div>
         </div>
     </div>
     <!-- Page Header End -->
 
-
+    
     <!-- Shop Detail Start -->
     <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col-lg-5 pb-5">
+                <?php
+                    // Mencari jumlah foto dengan judul yang sama pada folder produk
+                    $judulFoto = $idbarang;
+                    $fotoPath = "produk/" . $judulFoto . "*.png";
+                    $fotoFiles = glob($fotoPath);
+                    $jumlahFoto = count($fotoFiles);
+                    $harga = number_format($result['hargabarang'], 0, ',', '.');
+        
+                    if ($jumlahFoto > 1) { //NANTI
+                        // Tampilkan carousel jika terdapat lebih dari satu foto
+                ?>
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <?php
+                            // Membuat indikator untuk setiap foto
+                            for ($i = 0; $i < $jumlahFoto; $i++) {
+                                echo '<li data-target="#product-carousel" data-slide-to="' . $i . '"';
+                                if ($i === 0) {
+                                    echo ' class="active"';
+                                }
+                                echo '></li>';
+                            }
+                        ?>
+                    </ol>
                     <div class="carousel-inner border">
-                        <div class="carousel-item active">
-                            <img class="w-100 h-100" src="img/cat-1.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="img/cat-1.jpg" alt="Image">
-                        </div>
+                        <?php
+                            // Tampilkan setiap foto dalam carousel
+                            foreach ($fotoFiles as $key => $fotoFile) {
+                                echo '<div class="text-center carousel-item';
+                                if ($key === 0) {
+                                    echo ' active';
+                                }
+                                echo '">';
+                                echo '<img src="' . $fotoFile . '" class="w-75 h-75" alt="'. $result['namabarang'] .'">';
+                                echo '</div>';
+                            }
+                        ?>
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                        <i class="fa fa-2x fa-angle-left text-dark"></i>
+                        <i class="fa fa-2x fa-angle-left text-primary"></i>
                     </a>
                     <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                        <i class="fa fa-2x fa-angle-right text-dark"></i>
+                        <i class="fa fa-2x fa-angle-right text-primary"></i>
                     </a>
                 </div>
+            
+                <?php
+                    } elseif ($jumlahFoto === 1) {
+                        // Tampilkan gambar tunggal jika hanya terdapat satu foto
+                        $gambarPath = $fotoFiles[0];
+                        echo '<div class="carousel slide" data-ride="carousel">';
+                            echo '<div class="carousel-inner border text-center">';
+                                echo '<div class="carousel-item active">';
+                                echo '<img src="' . $gambarPath . '"class="w-75 h-75" alt="' . $result['namabarang'] . '">';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+                    } else {
+                        // Tampilkan pesan jika tidak ada foto yang ditemukan
+                        echo "Gambar tidak ditemukan.";
+                    }
+                ?>
             </div>
 
             <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold">The Don's House T-Shirt Oversize - HOTWHEELS BLACK</h3>
+                <h3 class="font-weight-semi-bold"><?php echo $result['namabarang']?></h3>
                 <div class="d-flex mb-3">
                     <div class="text-primary mr-2">
                         <small class="fas fa-star"></small>
                         <small class="fas fa-star"></small>
                         <small class="fas fa-star"></small>
+                        <small class="fas fa-star"></small>
                         <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
+                        <!-- <small class="far fa-star"></small> -->
                     </div>
-                    <small class="pt-1">(50 Reviews)</small>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4">Rp.150.000-</h3>
-                <p class="mb-4"> 100% Cotton 24s Oversized Cut <br/>
-                    - Bahan lembut,tidak kaku, dan nyaman saat digunakan<br/>
-                    - Kualitas sablon terbaik<br/>
-                    - Toleransi Jahitan 2cm</p>
+                <h3 class="font-weight-semi-bold mb-4">RP <?php echo $harga ?></h3>
                 <div class="d-flex mb-3">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                    
+                    <p class="text-dark font-weight-medium mb-0 mr-3">Ukuran:</p>
                     <form>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-1" name="size">
-                            <label class="custom-control-label" for="size-1">XS</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-2" name="size">
-                            <label class="custom-control-label" for="size-2">S</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-3" name="size">
-                            <label class="custom-control-label" for="size-3">M</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-4" name="size">
-                            <label class="custom-control-label" for="size-4">L</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-5" name="size">
-                            <label class="custom-control-label" for="size-5">XL</label>
-                        </div>
+                        <?php
+                            // Ambil data ukuran dari tabel MySQL
+                            $ukuran = $result['Ukuran'];
+                            $ukuranArray = explode(",", $ukuran);
+                            
+                            // Tampilkan opsi ukuran
+                            foreach ($ukuranArray as $size) {
+                                echo '<div class="custom-control custom-radio custom-control-inline">';
+                                echo '<input type="radio" class="custom-control-input" id="size-' . $size . '" name="size">';
+                                echo '<label class="custom-control-label" for="size-' . $size . '">' . $size . '</label>';
+                                echo '</div>';
+                            }
+                        ?>
                     </form>
                 </div>
                 <div class="d-flex mb-4">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
+                    <p class="text-dark font-weight-medium mb-0 mr-3">Warna:</p>
                     <form>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-1" name="color">
-                            <label class="custom-control-label" for="color-1">Black</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-2" name="color">
-                            <label class="custom-control-label" for="color-2">White</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-3" name="color">
-                            <label class="custom-control-label" for="color-3">Red</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-4" name="color">
-                            <label class="custom-control-label" for="color-4">Blue</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-5" name="color">
-                            <label class="custom-control-label" for="color-5">Green</label>
-                        </div>
+                        <?php
+                            // Ambil data warna dari tabel MySQL
+                            $warna = $result['Warna'];
+                            $warnaArray = explode(",", $warna);
+                            
+                            // Tampilkan opsi warna
+                            foreach ($warnaArray as $color) {
+                                echo '<div class="custom-control custom-radio custom-control-inline">';
+                                echo '<input type="radio" class="custom-control-input" id="color-' . $color . '" name="color">';
+                                echo '<label class="custom-control-label" for="color-' . $color . '">' . $color . '</label>';
+                                echo '</div>';
+                            }
+                        ?>
                     </form>
                 </div>
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus" >
+                            <button class="btn btn-primary text-light btn-minus" >
                             <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <input type="text" class="form-control text-center" value="1">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
+                            <button class="btn btn-primary text-light btn-plus">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                    <button class="btn btn-primary px-3 text-light"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
                 </div>
                 <div class="d-flex pt-2">
-                    <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
+                    <p class="text-dark font-weight-medium mb-0 mr-2">Bagikan produk:</p>
                     <div class="d-inline-flex">
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
+                        <?php 
+                        echo '<a class="text-dark px-2" href="https://www.facebook.com/sharer/sharer.php?u=gayagini.42web.io/detail.php?id='.$idbarang.'">';
+                        echo '<i class="fab fa-facebook-f"></i>';
+                        echo '</a>';
+                        echo '<a class="text-dark px-2" href="https://twitter.com/intent/tweet?url=gayagini.42web.io/detail.php?id='.$idbarang.'">';
+                        echo '<i class="fab fa-twitter"></i>';
+                        echo '</a>';
+                        echo '<a class="text-dark px-2" href="https://www.linkedin.com/shareArticle?url=gayagini.42web.io/detail.php?id='.$idbarang.'">';
+                        echo '<i class="fab fa-linkedin-in"></i>';
+                        echo '</a>';
+                        echo '<a class="text-dark px-2" href="https://api.whatsapp.com/send?text=gayagini.42web.io/detail.php?id='.$idbarang.'">';
+                        echo '<i class="fab fa-whatsapp"></i>';
+                        echo '</a>';
+                        ?>
                     </div>
                 </div>
             </div>
@@ -409,7 +440,7 @@
     <!-- Products Start -->
     <div class="container-fluid py-5">
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
+            <h2 class="section-title px-5"><span class="px-2">Kamu Mungkin Suka</span></h2>
         </div>
         <div class="row px-xl-5">
             <div class="col">
@@ -444,8 +475,6 @@
                             <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                         </div>
                     </div>
-                    
-                    
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
                             <div class="d-flex justify-content-center">
