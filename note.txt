@@ -1,0 +1,11 @@
+Index.html 
+    - Ubah Produk Trendi DONE
+
+Hapus Button Tidak Penting DONE
+
+Kondisi Review : Atur Login Pada Semua Halaman | Metode IF | LOGIN DONE
+
+
+
+Shop.html
+    - Review

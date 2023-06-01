@@ -26,6 +26,61 @@ function update() {
   }
 
   $(document).ready(function() {
+    $('.tombol-troli').click(function(event) {
+      event.preventDefault(); // Mencegah form submit secara default
+  
+      // Mengambil nilai ukuran terpilih
+      var ukuranForm = document.getElementById('ukuranForm');
+      var ukuranTerpilih = ukuranForm.querySelector('input[name="size"]:checked').value;
+  
+      // Mengambil nilai warna terpilih
+      var warnaForm = document.getElementById('warnaForm');
+      var warnaTerpilih = warnaForm.querySelector('input[name="color"]:checked').value;
+      var kuantitas = parseInt(document.getElementById('kuantitas').value);
+      // Mengambil nilai input
+      var useridss = window.userid;
+      var idbarangss = window.idbarang;
+      var usernamess = window.username;
+      var namabarangss = window.namabarang;
+      var hargab = window.hargabarang;
+      var hargabarangss = hargab * kuantitas;
+  
+      // Mengirim data ke skrip PHP menggunakan AJAX
+      $.ajax({
+        type: 'POST',
+        url: 'tambah_troli.php',
+        data: {
+          kuantitas:kuantitas,
+          useridss:useridss,
+          idbarangss: idbarangss,
+          usernamess: usernamess,
+          namabarangss: namabarangss,
+          hargabarangss: hargabarangss,
+          ukuranTerpilih: ukuranTerpilih,
+          warnaTerpilih: warnaTerpilih
+        },
+        success: function(response) {
+          if (response.success) {
+            // Jika login berhasil
+            alert(response.message);
+            // Lakukan tindakan selanjutnya, misalnya mengarahkan pengguna ke halaman lain
+            // window.location.href = "index.php"
+            // window.location.href = response.redirect;
+          } else {
+            // Jika login gagal
+            alert('Troli gagal: ' + response.message);
+          }
+        },
+        error: function() {
+          // Jika terjadi kesalahan saat melakukan AJAX
+          alert('Terjadi kesalahan saat memproses login');
+        }
+      });
+    });
+  });
+  
+
+  $(document).ready(function() {
     $('.tombol-login').click(function(event) {
       event.preventDefault(); // Mencegah form submit secara default
   
@@ -43,7 +98,8 @@ function update() {
             // Jika login berhasil
             alert(response.message);
             // Lakukan tindakan selanjutnya, misalnya mengarahkan pengguna ke halaman lain
-            window.location.href = "index.php"
+            // window.location.href = "index.php"
+            window.location.href = response.redirect;
           } else {
             // Jika login gagal
             alert('Login gagal: ' + response.message);

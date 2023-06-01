@@ -9,7 +9,6 @@ $connect = new mysqli($host, $username, $password, $database);
 if ($connect->connect_error) {
     die("Koneksi ke database gagal: " . $connect->connect_error);
 }
-
 // Mengecek data login pada tabel 'user'
 $sql = "SELECT * FROM user WHERE username = '$usernames'";
 $result = $connect->query($sql);
@@ -20,10 +19,19 @@ if ($result->num_rows > 0) {
     // Memeriksa kecocokan kata sandi
     if (password_verify($passwords, $hashedpassword)) {
         // Jika cocok, login berhasil
+        session_start();
+        $_SESSION['userid'] = $row['userid'];
+        $_SESSION['username'] = $usernames;
+        $_SESSION['logged_in'] = true;
         $response = array(
             'success' => true,
-            'message' => 'Login berhasil'
+            'message' => 'Login berhasil',
+            'redirect' => 'index.php'
         );
+        
+        // Login berhasil, simpan data login ke dalam session
+        // Redirect ke halaman beranda atau halaman lainnya
+        
     } else {
         // Jika tidak cocok, login gagal
         $response = array(

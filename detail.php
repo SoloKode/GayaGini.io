@@ -1,3 +1,20 @@
+<?php 
+    include 'connect.php';
+    session_start();
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+       
+    }
+    else {
+        $userid = $_SESSION['userid'];
+        $pengguna = $_SESSION['username'];
+     ;?>
+        <script>
+        var userid = "<?php echo $userid; ?>";
+        </script>
+
+     <?php
+    }
+?>
 <?php
     // Memeriksa apakah parameter idbarang telah diterima
     if(isset($_GET['id'])){
@@ -8,7 +25,7 @@
     }
     
     // Menghubungkan ke database
-    include "connect.php"; // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
+     // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
 
     // Mengambil data barang berdasarkan idbarang
     $query = mysqli_query($connect, "SELECT * FROM databarang WHERE idbarang='$idbarang'");
@@ -62,16 +79,40 @@
                 </div>
             </form>
         </div>
-        <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
-                <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-            <a href="" class="btn border">
-                <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-        </div>
+        <?php
+            // Lakukan koneksi ke database
+
+            // Periksa apakah pengguna telah login dan dapatkan userid
+            if (isset($_SESSION['userid'])) {
+                $userid = $_SESSION['userid'];
+
+                // Query untuk mengambil data dari tabel datapengguna
+                $queryss = "SELECT kuantitas FROM rekamtroliuser WHERE userid = $userid";
+                $resultss = $connect->query($queryss);
+
+                if ($resultss->num_rows > 0) {
+                    $troli_count = 0;
+                    while ($row = $resultss->fetch_assoc()) {
+                        $kuantitas = $row['kuantitas'];
+                        $troli_count += $kuantitas;
+                    }
+                } else {
+                    // Jika data tidak ditemukan, set jumlah barang yang dipilih menjadi 0
+                    $troli_count = 0;
+                }
+                
+            } else {
+                // Jika pengguna belum login, set jumlah barang yang dipilih dan jumlah barang yang disukai menjadi 0
+                $troli_count = 0;
+            }
+            ?>
+
+            <div class="col-lg-3 col-6 text-right">
+                <a href="#" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge"><?php echo $troli_count; ?> Produk</span>
+                </a>
+            </div>
     </div>
 </div>
     <!-- Topbar End -->
@@ -134,8 +175,6 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
-                            <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -146,8 +185,25 @@
                             <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
+                        <?php 
+                        
+                        if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+                            // Pengguna belum login, alihkan ke halaman login
+                            echo '
                             <a href="login.php" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
                             <a href="register.php" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
+                            ';
+                        }
+                        else {
+                            $pengguna = $_SESSION['username'];
+                            echo '
+                            <a href="#" class="nav-item nav-link text-center font-weight-semi-bold mt-1">Selamat datang, '.$pengguna.'</a>
+                            <a href="logout.php" class="btn nav-item mt-3 text-center font-weight-semi-bold btn-outline-danger text-danger h-50">Keluar</a>
+                        ';
+                        
+                        }
+                        
+                        ?>
                         </div>
                     </div>
                 </nav>
@@ -184,7 +240,7 @@
                     $fotoFiles = glob($fotoPath);
                     $jumlahFoto = count($fotoFiles);
                     $harga = number_format($result['hargabarang'], 0, ',', '.');
-        
+                    $hargavar = $result['hargabarang'];
                     if ($jumlahFoto > 1) { //NANTI
                         // Tampilkan carousel jika terdapat lebih dari satu foto
                 ?>
@@ -210,7 +266,7 @@
                                     echo ' active';
                                 }
                                 echo '">';
-                                echo '<img src="' . $fotoFile . '" class="w-75 h-75" alt="'. $result['namabarang'] .'">';
+                                echo '<img src="' . $fotoFile . '" class="w-75 h-100" alt="'. $result['namabarang'] .'">';
                                 echo '</div>';
                             }
                         ?>
@@ -230,7 +286,7 @@
                         echo '<div class="carousel slide" data-ride="carousel">';
                             echo '<div class="carousel-inner border text-center">';
                                 echo '<div class="carousel-item active">';
-                                echo '<img src="' . $gambarPath . '"class="w-75 h-75" alt="' . $result['namabarang'] . '">';
+                                echo '<img src="' . $gambarPath . '"class="w-75 h-100" alt="' . $result['namabarang'] . '">';
                                 echo '</div>';
                             echo '</div>';
                         echo '</div>';
@@ -256,16 +312,17 @@
                 <h3 class="font-weight-semi-bold mb-4">RP <?php echo $harga ?></h3>
                 <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Ukuran:</p>
-                    <form>
+                    <form id="ukuranForm">
                         <?php
                             // Ambil data ukuran dari tabel MySQL
                             $ukuran = $result['Ukuran'];
                             $ukuranArray = explode(",", $ukuran);
                             
                             // Tampilkan opsi ukuran
-                            foreach ($ukuranArray as $size) {
+                            foreach ($ukuranArray as $index => $size) {
+                                $checked = ($index === 0) ? 'checked' : ''; // Menandai opsi pertama sebagai terpilih
                                 echo '<div class="custom-control custom-radio custom-control-inline">';
-                                echo '<input type="radio" class="custom-control-input" id="size-' . $size . '" name="size">';
+                                echo '<input type="radio" class="custom-control-input" id="size-' . $size . '" name="size" value="' . $size . '" ' . $checked . '>';
                                 echo '<label class="custom-control-label" for="size-' . $size . '">' . $size . '</label>';
                                 echo '</div>';
                             }
@@ -274,22 +331,25 @@
                 </div>
                 <div class="d-flex mb-4">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Warna:</p>
-                    <form>
+                    <form id="warnaForm">
                         <?php
                             // Ambil data warna dari tabel MySQL
                             $warna = $result['Warna'];
                             $warnaArray = explode(",", $warna);
                             
                             // Tampilkan opsi warna
-                            foreach ($warnaArray as $color) {
-                                echo '<div class="custom-control custom-radio custom-control-inline ">';
-                                echo '<input type="radio" class="custom-control-input" id="color-' . $color . '" name="color">';
+                            foreach ($warnaArray as $index => $color) {
+                                $checked = ($index === 0) ? 'checked' : ''; // Menandai opsi pertama sebagai terpilih
+                                echo '<div class="custom-control custom-radio custom-control-inline">';
+                                echo '<input type="radio" class="custom-control-input" id="color-' . $color . '" name="color" value="' . $color . '" ' . $checked . '>';
                                 echo '<label class="custom-control-label" for="color-' . $color . '">' . $color . '</label>';
                                 echo '</div>';
                             }
                         ?>
                     </form>
                 </div>
+
+
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
@@ -297,14 +357,40 @@
                             <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1">
+                        <input id="kuantitas" type="text" class="form-control text-center" value="1">
                         <div class="input-group-btn">
                             <button class="btn btn-primary text-light btn-plus">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary px-3 text-light"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                    <script>
+                            var idbarang = "<?php echo $result['idbarang']?>"
+                            var username = "<?php echo $pengguna; ?>";
+                            var namabarang = "<?php echo $result['namabarang'] ?>";
+                            var hargabarang = parseInt("<?php echo $hargavar; ?>");
+                    </script>
+                    <?php 
+                        
+                        if (isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === true) {
+                            // Pengguna belum login, alihkan ke halaman login
+                            
+                            
+                            echo '
+                            <button class="tombol-troli btn btn-primary px-3 text-light"><i class="fa fa-shopping-cart mr-1"></i> Tambah ke Troli</button>
+                            ';
+                        }
+                        else {
+                            echo '
+                            <button class="btn btn-primary px-3 text-light"><i class="fa fa-shopping-cart mr-1"></i> Tambah ke Troli</button>
+                        ';
+                        
+                        }
+                        
+                        ?>
+                <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+                <script type="text/javascript" src="fungsi.js"></script>
+                    
                 </div>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Bagikan produk:</p>
@@ -417,8 +503,8 @@
     </div>
     <!-- Shop Detail End -->
 
-    <?php $kategori = $result['kategori']; 
-    $queryRekomendasi = mysqli_query($connect, "SELECT * FROM databarang WHERE kategori='$kategori' AND idbarang <> '$idbarang' LIMIT 4");
+    <?php 
+    $queryRekomendasi = mysqli_query($connect, "SELECT * FROM databarang ORDER BY RAND() LIMIT 4");
     ?>
     <!-- Products Start -->
     <div class="container-fluid py-5">

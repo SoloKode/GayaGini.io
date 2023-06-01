@@ -1,3 +1,13 @@
+<?php 
+    include 'connect.php';
+    session_start();
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+       
+    }
+    else {
+        $userid = $_SESSION['userid'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,16 +55,40 @@
                 </div>
             </form>
         </div>
-        <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
-                <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-            <a href="" class="btn border">
-                <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-        </div>
+        <?php
+            // Lakukan koneksi ke database
+
+            // Periksa apakah pengguna telah login dan dapatkan userid
+            if (isset($_SESSION['userid'])) {
+                $userid = $_SESSION['userid'];
+
+                // Query untuk mengambil data dari tabel datapengguna
+                $queryss = "SELECT kuantitas FROM rekamtroliuser WHERE userid = $userid";
+                $resultss = $connect->query($queryss);
+
+                if ($resultss->num_rows > 0) {
+                    $troli_count = 0;
+                    while ($row = $resultss->fetch_assoc()) {
+                        $kuantitas = $row['kuantitas'];
+                        $troli_count += $kuantitas;
+                    }
+                } else {
+                    // Jika data tidak ditemukan, set jumlah barang yang dipilih menjadi 0
+                    $troli_count = 0;
+                }
+                
+            } else {
+                // Jika pengguna belum login, set jumlah barang yang dipilih dan jumlah barang yang disukai menjadi 0
+                $troli_count = 0;
+            }
+            ?>
+
+            <div class="col-lg-3 col-6 text-right">
+                <a href="#" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge"><?php echo $troli_count; ?> Produk</span>
+                </a>
+            </div>
     </div>
 </div>
     <!-- Topbar End -->
@@ -134,8 +168,6 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
-                            <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -146,8 +178,25 @@
                             <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
+                        <?php 
+                        
+                        if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+                            // Pengguna belum login, alihkan ke halaman login
+                            echo '
                             <a href="login.php" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
                             <a href="register.php" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
+                            ';
+                        }
+                        else {
+                            $pengguna = $_SESSION['username'];
+                            echo '
+                            <a href="#" class="nav-item nav-link text-center font-weight-semi-bold mt-1">Selamat datang, '.$pengguna.'</a>
+                            <a href="logout.php" class="btn nav-item mt-3 text-center font-weight-semi-bold btn-outline-danger text-danger h-50">Keluar</a>
+                        ';
+                        
+                        }
+                        
+                        ?>
                         </div>
                     </div>
                 </nav>

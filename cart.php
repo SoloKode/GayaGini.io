@@ -1,3 +1,13 @@
+<?php 
+    include 'connect.php';
+    session_start();
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+       
+    }
+    else {
+        $userid = $_SESSION['userid'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,16 +55,73 @@
                 </div>
             </form>
         </div>
-        <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
-                <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-            <a href="" class="btn border">
-                <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
-            </a>
-        </div>
+        <?php
+            // Lakukan koneksi ke database
+
+            // Periksa apakah pengguna telah login dan dapatkan userid
+            if (isset($_SESSION['userid'])) {
+                $userid = $_SESSION['userid'];
+
+                // Query untuk mengambil data dari tabel datapengguna
+                $queryss = "SELECT kuantitas FROM rekamtroliuser WHERE userid = $userid";
+                $resultss = $connect->query($queryss);
+
+                if ($resultss->num_rows > 0) {
+                    $troli_count = 0;
+                    while ($row = $resultss->fetch_assoc()) {
+                        $kuantitas = $row['kuantitas'];
+                        $troli_count += $kuantitas;
+                    }
+                } else {
+                    // Jika data tidak ditemukan, set jumlah barang yang dipilih menjadi 0
+                    $troli_count = 0;
+                }
+                
+            } else {
+                // Jika pengguna belum login, set jumlah barang yang dipilih dan jumlah barang yang disukai menjadi 0
+                $troli_count = 0;
+            }
+            ?>
+
+            <div class="col-lg-3 col-6 text-right">
+                <a href="#" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge"><?php echo $troli_count; ?> Produk</span>
+                </a>
+            </div><?php
+            // Lakukan koneksi ke database
+
+            // Periksa apakah pengguna telah login dan dapatkan userid
+            if (isset($_SESSION['userid'])) {
+                $userid = $_SESSION['userid'];
+
+                // Query untuk mengambil data dari tabel datapengguna
+                $queryss = "SELECT kuantitas FROM rekamtroliuser WHERE userid = $userid";
+                $resultss = $connect->query($queryss);
+
+                if ($resultss->num_rows > 0) {
+                    $troli_count = 0;
+                    while ($row = $resultss->fetch_assoc()) {
+                        $kuantitas = $row['kuantitas'];
+                        $troli_count += $kuantitas;
+                    }
+                } else {
+                    // Jika data tidak ditemukan, set jumlah barang yang dipilih menjadi 0
+                    $troli_count = 0;
+                }
+                
+            } else {
+                // Jika pengguna belum login, set jumlah barang yang dipilih dan jumlah barang yang disukai menjadi 0
+                $troli_count = 0;
+            }
+            ?>
+
+            <div class="col-lg-3 col-6 text-right">
+                <a href="#" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge"><?php echo $troli_count; ?> Produk</span>
+                </a>
+            </div>
     </div>
 </div>
     <!-- Topbar End -->
@@ -117,8 +184,6 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link text-center">Beranda</a>
-                            <a href="shop.php" class="nav-item nav-link text-center">Belanja</a>
-                            <a href="detail.php" class="nav-item nav-link text-center">Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle text-center" data-toggle="dropdown"> Halaman</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -129,8 +194,25 @@
                             <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
+                        <?php 
+                        
+                        if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+                            // Pengguna belum login, alihkan ke halaman login
+                            echo '
                             <a href="login.php" class="nav-item nav-link text-center font-weight-semi-bold">Login</a>
                             <a href="register.php" class="nav-item nav-link text-center font-weight-semi-bold">Daftar</a>
+                            ';
+                        }
+                        else {
+                            $pengguna = $_SESSION['username'];
+                            echo '
+                            <a href="#" class="nav-item nav-link text-center font-weight-semi-bold mt-1">Selamat datang, '.$pengguna.'</a>
+                            <a href="logout.php" class="btn nav-item mt-3 text-center font-weight-semi-bold btn-outline-danger text-danger h-50">Keluar</a>
+                        ';
+                        
+                        }
+                        
+                        ?>
                         </div>
                     </div>
                 </nav>
@@ -169,146 +251,103 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
-                        <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-4.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-4">
-                <form class="mb-5" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="card border-secondary mb-5">
-                    <div class="card-header bg-secondary border-0">
-                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">$150</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
-                        </div>
-                    </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">$160</h5>
-                        </div>
-                        <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                    if ($connect->connect_error) {
+                    die("Koneksi ke database gagal: " . $connect->connect_error);
+                    }
+
+                    // Ambil userid dari session
+                    $userid = $_SESSION['userid'];
+
+                    // Query untuk mendapatkan informasi barang pada troli dari tabel datapengguna
+                    $query = "SELECT troli FROM datapengguna WHERE userid = $userid";
+                    $result = $connect->query($query);
+
+                    // Inisialisasi subtotal
+                    $subtotal = 0;
+
+                    // Periksa apakah data troli ditemukan
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $troli = $row['troli'];
+
+                        // Pisahkan idbarang pada troli
+                        $idbarang_array = explode(";", $troli);
+
+                        // Tampilkan setiap barang pada kolom troli
+                        foreach ($idbarang_array as $idbarang) {
+                            // Query untuk mendapatkan informasi barang dari tabel databarang
+                            $query_barang = "SELECT idbarang, namabarang, hargabarang FROM databarang WHERE idbarang = '$idbarang'";
+                            $result_barang = $connect->query($query_barang);
+
+                            // Periksa apakah data barang ditemukan
+                            if ($result_barang->num_rows > 0) {
+                                $row_barang = $result_barang->fetch_assoc();
+                                $namabarang = $row_barang['namabarang'];
+                                $hargabarang = $row_barang['hargabarang'];
+
+                                // Tampilkan informasi barang pada tabel
+                                echo '<tr>';
+                                echo '<td class="align-middle"><img src="produk/'.$row_barang['idbarang'].'.png" alt="" style="width: 50px;"> ' . $namabarang . '</td>';
+                                echo '<td class="align-middle">RP ' . $hargabarang . '</td>';
+                                echo '<td class="align-middle">';
+                                echo '<div class="input-group quantity mx-auto" style="width: 100px;">';
+                                echo '<div class="input-group-btn">';
+                                echo '<button class="btn btn-sm btn-primary btn-minus">';
+                                echo '<i class="fa fa-minus"></i>';
+                                echo '</button>';
+                                echo '</div>';
+                                echo '<input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">';
+                                echo '<div class="input-group-btn">';
+                                echo '<button class="btn btn-sm btn-primary btn-plus">';
+                                echo '<i class="fa fa-plus"></i>';
+                                echo '</button>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</td>';
+                                echo '<td class="align-middle">RP ' . $hargabarang . '</td>';
+                                echo '<td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>';
+                                echo '</tr>';
+
+                                // Tambahkan harga barang pada subtotal
+                                $subtotal += $hargabarang;
+                            }
+                        }
+                    }
+
+                    // Tampilkan subtotal, biaya pengiriman, dan total
+                    echo '</tbody>';
+                    echo '</table>';
+                    echo '</div>';
+                    echo '<div class="col-lg-4">';
+                    echo '<div class="card border-secondary mb-5">';
+                    echo '<div class="card-header bg-secondary border-0">';
+                    echo '<h4 class="font-weight-semi-bold m-0">Cart Summary</h4>';
+                    echo '</div>';
+                    echo '<div class="card-body">';
+                    echo '<div class="d-flex justify-content-between mb-3 pt-1">';
+                    echo '<h6 class="font-weight-medium">Subtotal</h6>';
+                    echo '<h6 class="font-weight-medium">RP ' . $subtotal . '</h6>';
+                    echo '</div>';
+                    echo '<div class="d-flex justify-content-between">';
+                    echo '<h6 class="font-weight-medium">Shipping</h6>';
+                    echo '<h6 class="font-weight-medium">RP 10000</h6>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div class="card-footer border-secondary bg-transparent">';
+                    echo '<div class="d-flex justify-content-between mt-2">';
+                    echo '<h5 class="font-weight-bold">Total</h5>';
+                    $total = $subtotal + 10000;
+                    echo '<h5 class="font-weight-bold">RP ' . $total . '</h5>';
+                    echo '</div>';
+                    echo '<button class="btn btn-block btn-primary my-3 py-3 text-light">Proceed To Checkout</button>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+
+                    // Tutup koneksi ke database
+                    $connect->close();
+                    ?>
         </div>
     </div>
     <!-- Cart End -->
