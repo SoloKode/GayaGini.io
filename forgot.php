@@ -16,6 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <title>GayaGini - Lupa Password</title>
+  <meta content="GAYAGINI Fashion Shop" name="keywords">
+  <meta content="Online Shop Pilihan Anak Muda" name="description">
 </head>
 <body>
   <div class="container">

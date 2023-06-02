@@ -12,7 +12,7 @@
     if(isset($_GET['namabarang']) && !isset($_GET['kategori'])){
         $namabarangs = $_GET['namabarang'];
         $data = $namabarangs;
-        $query = mysqli_query($connect, "SELECT * FROM databarang WHERE namabarang LIKE '%$namabarangs %' LIMIT 9");
+        $query = mysqli_query($connect, "SELECT * FROM databarang WHERE namabarang LIKE '%$namabarangs%' LIMIT 9");
     }
     // Memeriksa apakah parameter kategori telah diterima
     else if(isset($_GET['kategori']) && !isset($_GET['namabarang'])){
@@ -39,8 +39,8 @@
     <meta charset="utf-8">
     <title>GayaGini - <?php echo $data ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="GAYAGINI Fashion Shop" name="keywords">
+    <meta content="Online Shop Pilihan Anak Muda" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -192,7 +192,7 @@
                                     <a href="checkout.php" class="dropdown-item text-center">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
+                            <a href="contact.php" class="nav-item nav-link text-center">Tentang Kami</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
                         <?php 

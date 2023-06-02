@@ -15,8 +15,8 @@
     <meta charset="utf-8">
     <title>GayaGini - Tentang Kami</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="GAYAGINI Fashion Shop" name="keywords">
+    <meta content="Online Shop Pilihan Anak Muda" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -185,7 +185,7 @@
                                     <a href="checkout.php" class="dropdown-item text-center">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.php" class="nav-item nav-link text-center">Kontak</a>
+                            <a href="contact.php" class="nav-item nav-link text-center">Tentang Kami</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 ">
                         <?php 
@@ -217,43 +217,75 @@
 
 
     <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">KONTAK KAMI</h1>
-            <div class="d-inline-flex">
-                <p class="m-0"><a href="">Beranda</a></p>
-                <p class="m-0 px-2">-</p>
-                <p class="m-0">Kontak</p>
-            </div>
+    <div class="container-fluid bg-secondary mb-4">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
+            <h1 class="font-weight-semi-bold text-uppercase">TENTANG KAMI</h1>
         </div>
     </div>
     <!-- Page Header End -->
+    <div class="container-fluid mt-5 mb-2">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h2 class="font-weight-semi-bold text-uppercase mt-3 mb-3 section-title px-5"><span class="px-2">TIM GAYAGINI</span></h2>
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="m-5 text-center">
+            <figure>
+                <img class="mb-3" src="img/Sayid.png" alt="Sayid Achmad Maulana" style="opacity:0.95;">
+                <figcaption class="mb-0"><h5>8020210120</h5></figcaption>
+                <figcaption class="mb-0"><h5>Sayid Achmad Maulana</h5></figcaption>
+                <figcaption class="mb-0"><a href="https://github.com/Doffel" target="_blank"><img src="img/github.svg" alt="" style="width:10%;height:10%;opacity:0.7;"></a></figcaption>
+            </figure>
+        </div>
+        <div class="m-5 text-center">
+            <figure>
+                <img class="mb-3" src="img/Auzi.png" alt="M Auzi Rehandra" style="opacity:0.95;">
+                <figcaption class="mb-0"><h5>8020210103</h5></figcaption>
+                <figcaption class="mb-0"><h5>M Auzi Rehandra</h5></figcaption>
+                <figcaption class="mb-0"><a href="https://github.com/rhndr" target="_blank"><img src="img/github.svg" alt="" style="width:10%;height:10%;opacity:0.7;"></a></figcaption>
+            </figure>
+        </div>
+        <div class="m-5 text-center">
+            <figure>
+                <img class="mb-3" src="img/Vascal.png" alt="Vascal Mustajab" style="opacity:0.95;">
+                <figcaption class="mb-0"><h5>8020210225</h5></figcaption>
+                <figcaption class="mb-0"><h5>Vascal Mustajab</h5></figcaption>
+                <figcaption class="mb-0"><a href="https://github.com/Icaaall2" target="_blank"><img src="img/github.svg" alt="" style="width:10%;height:10%;opacity:0.7;"></a></figcaption>
+            </figure>
+        </div>
+        <div class="m-5 text-center">
+            <figure>
+                <img class="mb-3" src="img/Agung.png" alt="Agung Islami Aryantino" style="opacity:0.95;">
+                <figcaption class="mb-0"><h5>8020210251</h5></figcaption>
+                <figcaption class="mb-0"><h5>Agung Islami Aryantino</h5></figcaption>
+                <figcaption class="mb-0"><a href="https://github.com/AgungIslami" target="_blank"><img src="img/github.svg" alt="" style="width:10%;height:10%;opacity:0.7;"></a></figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="m-5 text-center">
+            <figure>
+                <a href="https://github.com/Doffel/GayaGini.io" target="_blank" class="btn"><img class="mb-3" src="img/github.svg" alt="Sayid Achmad Maulana" style="opacity:0.8;width:50%;height:50%;">
+                <figcaption class="mb-0"><h5>GAYAGINI</h5></figcaption>
+                <figcaption class="mb-0"><h5>REPOSITORY</h5></figcaption></a>
+            </figure>
+        </div>
+    </div>
+</div>
 
 
+</div>
+
+    </div>
     <!-- Contact Start -->
-    <div class="container-fluid pt-5">
-        <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">Kontak Bantuan</span></h2>
-        </div>
-        <div class="row px-xl-5">
+    <div class="container-fluid pt-5 text-center mb-5">
             
-            <div class="col-lg-5 mb-5">
-                <h5 class="font-weight-semi-bold mb-3">Hubungi Kami</h5>
-                <p>Customer Service Siap Melayani 24 Jam Dalam Keadaan Apa Saja</p>
-                <div class="d-flex flex-column mb-3">
-                    <h5 class="font-weight-semi-bold mb-3">GayaGini Department Store</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Jl Hayam Wuruk, Jambi, Indonesia</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>GayaGini.Store@gmail.com</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+62 2112 3456</p>
-                </div>
+            
+                <h5 class="font-weight-semi-bold">UNIVERSITAL DINAMIKA BANGSA</h5>
+                <p>KOTA JAMBI</p>
                 <div class="d-flex flex-column">
-                    <h5 class="font-weight-semi-bold mb-3">Store 2</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Jl Soekarno Hatta, Jambi, Indonesia</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>GayaGini.Store@gmail.com</p>
-                    <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+62 2112 3456</p>
+                    <h5 class="font-weight-semi-bold">MATA KULIAH</h5>
+                    <p class="mb-2"></i>PEMROGRAMAN WEB I</p>
                 </div>
-            </div>
-        </div>
+        
     </div>
     <!-- Contact End -->
 
