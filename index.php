@@ -36,23 +36,34 @@
 <body>
     <!-- Topbar Start -->
         <div class="container-fluid row align-items-center py-3 px-xl-5 mt-3 ">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a href="" class="text-decoration-none">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="" class="text-decoration-none">
                 <img class="ml-5" src="img/pht/Gaya-Gini.png" alt="" width="102,4" height="60">
-                </a>
-            </div>
-            <div class="col-lg-6 col-6 text-left">
-                <form action="">
-                    <div class="ml-4 input-group">
-                        <input type="text" class="form-control" placeholder="Cari Produk">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            <form>
+                <div class="ml-4 input-group">
+                    <input id="search-input" type="text" class="form-control" placeholder="Cari Produk">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary">
+                            <a id="search-button" class="text-primary"><i class="fa fa-search"></i></a>
+                        </span>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
+
+<script>
+    document.getElementById('search-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        var searchInput = document.getElementById('search-input').value;
+        var url = 'shop.php?namabarang=' + encodeURIComponent(searchInput);
+        window.location.href = url;
+    });
+</script>
+
             <?php
             // Lakukan koneksi ke database
 
@@ -82,7 +93,7 @@
             ?>
 
             <div class="col-lg-3 col-6 text-right">
-                <a href="#" class="btn border">
+                <a href="cart.php" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge"><?php echo $troli_count; ?> Produk</span>
                 </a>
@@ -483,10 +494,9 @@
                                 <h6>IDR <?php echo $hargaproduk; ?></h6>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
+                        <div class="card-footer justify-content-between bg-light border text-center">
                             <?php
-                            echo '<a href="detail.php?id=' . $idproduk . '" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';
-                            echo '<a href="#" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>';
+                            echo '<a href="detail.php?id=' . $idproduk . '" class="btn  text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';
                             ?>
                         </div>
                     </div>

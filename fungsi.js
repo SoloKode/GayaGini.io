@@ -78,7 +78,6 @@ function update() {
       });
     });
   });
-  
 
   $(document).ready(function() {
     $('.tombol-login').click(function(event) {
@@ -153,7 +152,7 @@ $(".tombol-daftar").click(function(){
       data: data,
       success: function(response) {
         if (response.success) {
-          alert(response.message);
+          alert("Daftar Berhasil");
         } else {
           alert("Gagal mendaftar: " + response.message);
         }

@@ -11,10 +11,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="img/favicon.ico" rel="icon">
+  <link href="img/favicon.ico" rel="icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Form Register</title>
+  <title>GayaGini - Daftar</title>
 </head>
 <body>
   <div class="container">

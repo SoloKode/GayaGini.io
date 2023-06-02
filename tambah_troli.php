@@ -17,8 +17,10 @@ if ($connect->connect_error) {
 // Mengecek data login pada tabel 'user'
 $sql = "INSERT INTO rekamtroliuser (userid, idbarang, username, namabarang, hargabarang, ukuran, warna, kuantitas) VALUES ('$uid', '$idbarangs', '$usernames', '$namabarangs', '$hargabarangs', '$ukurans', '$warnas','$kuantitas')";
 
-if ($connect->query($sql) === TRUE) {
+if ($connect->query($sql) === TRUE && $kuantitas > 0) {
     $response = array('success' => true, 'message' => 'Barang berhasil ditambahkan ke troli.');
+} else if($kuantitas == 0){
+    $response = array('success' => false, 'message' => 'Kuantitas tidak valid');
 } else {
     $response = array('success' => false, 'message' => 'Error: ' . $sql . '<br>' . mysqli_error($connect));
 }

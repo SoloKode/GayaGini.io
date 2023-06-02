@@ -13,7 +13,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>GayaGini Fashion Store</title>
+    <title>GayaGini - Tentang Kami</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -40,21 +40,31 @@
     <div class="container-fluid row align-items-center py-3 px-xl-5 mt-3 ">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-            <img class="ml-5" src="img/pht/Gaya-Gini.png" alt="" width="102,4" height="60">
+                <img class="ml-5" src="img/pht/Gaya-Gini.png" alt="" width="102,4" height="60">
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
+            <form>
                 <div class="ml-4 input-group">
-                    <input type="text" class="form-control" placeholder="Cari Produk">
+                    <input id="search-input" type="text" class="form-control" placeholder="Cari Produk">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
+                            <a id="search-button" class="text-primary"><i class="fa fa-search"></i></a>
                         </span>
                     </div>
                 </div>
             </form>
         </div>
+
+<script>
+    document.getElementById('search-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        var searchInput = document.getElementById('search-input').value;
+        var url = 'shop.php?namabarang=' + encodeURIComponent(searchInput);
+        window.location.href = url;
+    });
+</script>
         <?php
             // Lakukan koneksi ke database
 
@@ -84,7 +94,7 @@
             ?>
 
             <div class="col-lg-3 col-6 text-right">
-                <a href="#" class="btn border">
+                <a href="cart.php" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge"><?php echo $troli_count; ?> Produk</span>
                 </a>

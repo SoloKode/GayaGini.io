@@ -1,23 +1,33 @@
 <?php
     include 'connect.php';
     session_start();
+
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
        
     }
     else {
         $userid = $_SESSION['userid'];
     }
+    $data;
+    if(isset($_GET['namabarang']) && !isset($_GET['kategori'])){
+        $namabarangs = $_GET['namabarang'];
+        $data = $namabarangs;
+        $query = mysqli_query($connect, "SELECT * FROM databarang WHERE namabarang LIKE '%$namabarangs %' LIMIT 9");
+    }
     // Memeriksa apakah parameter kategori telah diterima
-    if(isset($_GET['kategori'])){
+    else if(isset($_GET['kategori']) && !isset($_GET['namabarang'])){
         $kategori = $_GET['kategori'];
+        $data = $kategori;
+        $query = mysqli_query($connect, "SELECT * FROM databarang WHERE kategori='$kategori' LIMIT 9");
     }
-    else {
-        die ("Error. No Category Selected!");    
+    
+    else if(!isset($_GET['kategori']) && !isset($_GET['namabarang'])){
+        header("Location: index.php");
     }
+    
      // Gantikan dengan file koneksi yang sesuai dengan konfigurasi Anda
 
     // Mengambil data barang berdasarkan kategori
-    $query = mysqli_query($connect, "SELECT * FROM databarang WHERE kategori='$kategori' LIMIT 9");
 
     // Mengecek jumlah barang yang ditemukan
     $rowCount = mysqli_num_rows($query);
@@ -27,7 +37,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>GayaGini - <?php echo $kategori ?></title>
+    <title>GayaGini - <?php echo $data ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -54,21 +64,31 @@
     <div class="container-fluid row align-items-center py-3 px-xl-5 mt-3 ">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-            <img class="ml-5" src="img/pht/Gaya-Gini.png" alt="" width="102,4" height="60">
+                <img class="ml-5" src="img/pht/Gaya-Gini.png" alt="" width="102,4" height="60">
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
+            <form>
                 <div class="ml-4 input-group">
-                    <input type="text" class="form-control" placeholder="Cari Produk">
+                    <input id="search-input" type="text" class="form-control" placeholder="Cari Produk">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
+                            <a id="search-button" class="text-primary"><i class="fa fa-search"></i></a>
                         </span>
                     </div>
                 </div>
             </form>
         </div>
+
+<script>
+    document.getElementById('search-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        var searchInput = document.getElementById('search-input').value;
+        var url = 'shop.php?namabarang=' + encodeURIComponent(searchInput);
+        window.location.href = url;
+    });
+</script>
         <?php
             // Lakukan koneksi ke database
 
@@ -98,7 +118,7 @@
             ?>
 
             <div class="col-lg-3 col-6 text-right">
-                <a href="#" class="btn border">
+                <a href="cart.php" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge"><?php echo $troli_count; ?> Produk</span>
                 </a>
@@ -206,7 +226,7 @@
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-4 mt-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3"><?php echo $kategori; ?></h1>
+            <h1 class="font-weight-semi-bold text-uppercase mb-3"><?php echo $data; ?></h1>
             <div class="d-inline-flex">
                 <p class="m-0 text-center"><a href="index.php">Beranda</a></p>
             </div>
@@ -249,9 +269,8 @@
                     echo '<h6>RP '.$harga.'</h6>';              
                     echo '</div>';           
                     echo '</div>';       
-                    echo '<div class="card-footer d-flex justify-content-between bg-light border">';        
-                    echo '  <a href="detail.php?id='.$result['idbarang'].'" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';          
-                    echo '  <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Tambah ke Troli</a>';          
+                    echo '<div class="card-footer justify-content-between bg-light border">';        
+                    echo '  <a href="detail.php?id='.$result['idbarang'].'" class="btn text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';
                     echo '  </div>';      
                     echo '</div>';    
                     echo '</div>';
@@ -275,7 +294,14 @@
                 }
             }
         } else {
-            echo "<p>Tidak ada barang yang ditemukan dalam kategori ini.</p>";
+            if (isset($_GET['namabarang']) && !isset($_GET['kategori'])) 
+            {
+                echo "<p class='container-fluid mb-5'>Tidak ada barang yang ditemukan dalam pencarian ini.</p>";
+            }
+            else if (!isset($_GET['namabarang']) && isset($_GET['kategori']))
+            {
+            echo "<p class='container-fluid mb-5'>Tidak ada barang yang ditemukan dalam kategori ini.</p>";
+            }
         }
     ?>
             <!-- Shop Product Start -->

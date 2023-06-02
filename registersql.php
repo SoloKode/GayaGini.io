@@ -20,23 +20,39 @@ if (($passwords == $konfirmpw)&&(strlen($emails) > 0)&&(strlen($usernames) > 0)&
             "success" => false,
             "message" => "Username atau email sudah digunakan."
         );
-    } else {
-        // Menyimpan data pendaftar ke dalam tabel 'user'
-        $sql = "INSERT INTO user (username, email, password) VALUES ('$usernames', '$emails', '$passwords')";
-
-        if ($connect->query($sql) === TRUE) {
-            $response = array(
-                "success" => true,
-                "message" => "Pendaftaran berhasil"
-            );
-        } else {
-            $response = array(
-                "success" => false,
-                "message" => "Error: " . $sql . "<br>" . $connect->error
-            );
-        }
     }
-}
+    else if ($checkResult->num_rows > 0 && strlen($passwords) < 8) {
+        # code...
+                if (strlen($passwords) < 8) {
+                    $response = array(
+                        "success" => false,
+                        "message" => "Password kurang dari 8 digit."
+                    );
+                }
+                else if ($passwords !== $konfirmpw) {
+                    # code...
+                    $response = array(
+                        "success" => false,
+                        "message" => "Konfirmasi password tidak sama.");
+                }
+            } 
+            else {
+                // Menyimpan data pendaftar ke dalam tabel 'user'
+                $sql = "INSERT INTO user (username, email, password) VALUES ('$usernames', '$emails', '$passwords')";
+        
+                if ($connect->query($sql) === TRUE) {
+                    $response = array(
+                        "success" => true,
+                        "message" => "Pendaftaran berhasil"
+                    );
+                } else {
+                    $response = array(
+                        "success" => false,
+                        "message" => "Error: " . $sql . "<br>" . $connect->error
+                    );
+                }
+            }
+    } 
 else {
     $response = array(
         "success" => false,
