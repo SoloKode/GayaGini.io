@@ -2321,7 +2321,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #6F6F6F;
+  color: #6f6f6f;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -2341,7 +2341,7 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #6F6F6F;
+  color: #6f6f6f;
   text-decoration: none;
 }
 
@@ -2364,7 +2364,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #212529;
+  color: #a3d1ff;
   background-color: #4a83ff;
   border-color: #6696ff;
 }
@@ -2379,7 +2379,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #4a83ff;
   border-color: #6696ff;
-  box-shadow: 0 0 0 0.2rem rgba(183, 138, 135, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(135, 136, 183, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -2397,7 +2397,7 @@ fieldset:disabled a.btn {
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(183, 138, 135, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(135, 144, 183, 0.5);
 }
 
 .btn-secondary {
@@ -3504,8 +3504,8 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #D19C97;
-  background-color: #D19C97;
+  border-color: #679cff;
+  background-color: #97a2d1;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -3574,11 +3574,11 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background-color: rgba(209, 156, 151, 0.5);
+  background-color: rgba(151, 176, 209, 0.5);
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
-  background-color: rgba(209, 156, 151, 0.5);
+  background-color: rgba(151, 166, 209, 0.5);
 }
 
 .custom-radio .custom-control-label::before {
@@ -3590,7 +3590,7 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background-color: rgba(209, 156, 151, 0.5);
+  background-color: rgba(53, 174, 255, 0.788);
 }
 
 .custom-switch {
@@ -6246,11 +6246,11 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #D19C97 !important;
+  border-color: #5e91ff !important;
 }
 
 .border-secondary {
-  border-color: #EDF1FF !important;
+  border-color: #5e91ff !important;
 }
 
 .border-success {
