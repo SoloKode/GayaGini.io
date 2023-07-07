@@ -360,9 +360,9 @@
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Sepatu</h5>
                     <div class="modal fade" id="dialogModal2" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
                                     <h5 class="modal-title" id="dialogTitle">Silakan pilih salah satu opsi:</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -405,27 +405,7 @@
                         <img class="img-fluid" src="img/jogg.png" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Celana Olahraga</h5>
-                    <div class="modal fade" id="dialogModal3" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                    <h5 class="modal-title" id="dialogTitle">Silakan pilih salah satu opsi:</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-6">
-                                        <a href="shop.php?kategori=Celana Olahraga Pria" class="btn btn-primary btn-block rounded-pill text-light">Celana Olahraga Pria</a>
-                                    </div>
-                                    <div   div class="col-6">
-                                        <a href="shop.php?kategori=Celana Olahraga Wanita" class="btn btn-primary btn-block rounded-pill text-light">Celana Olahraga Wanita</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     
                 </div>
                 </div>
             </div>

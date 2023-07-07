@@ -276,10 +276,17 @@
                                     echo ' active';
                                 }
                                 echo '">';
-                                echo '<img src="' . $fotoFile . '" class="w-75 h-100" alt="'. $result['namabarang'] .'">';
+                                echo '
+                                <a href="" class="cat-img position-relative overflow-hidden mb-3" data-toggle="modal" data-target="#dialogModal2">
+                                <img src="' . $fotoFile . '" class="w-75 h-100" alt="'. $result['namabarang'] .'">
+                                </a>';
                                 echo '</div>';
                             }
+
                         ?>
+
+                        
+                        
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                         <i class="fa fa-2x fa-angle-left text-primary"></i>
@@ -422,6 +429,21 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="modal fade" id="dialogModal2" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row justify-content-center">
+                                    <?php 
+                                    echo '
+                                    
+                                    <img class="py-5" src="produk/SAN02 - Copy.png" class="w-75 h-100" alt="'. $result['namabarang'] .'">
+                                    ';
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   -->
         <div class="row px-xl-5">
             <div class="col">
                 <div class="nav nav-tabs text-primary justify-content-center border-secondary mb-4">
@@ -490,7 +512,7 @@
                         </div>
                         <div class="card-footer justify-content-between text-center bg-light border">  
                             <?php     
-                            echo '  <a href="detail.php?id='.$result['idbarang'].'" class="btn text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';
+                            echo '  <a href="detail.php?id='.$idbarangs.'" class="btn text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Lihat Detail</a>';
                             ?>
                         </div>
                     </div>

@@ -5951,7 +5951,10 @@ a.close.disabled {
 .carousel-control-next {
   right: 0;
 }
-
+.sizefoto{
+  width: 500%;
+  height: 500%;
+}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;

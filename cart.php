@@ -265,7 +265,7 @@
                             $subtotals = number_format($subtotal, 0, ',', '.');
                             // Tampilkan informasi barang pada tabel
                             echo '<tr>';
-                            echo '<td class="align-middle"><img src="produk/'.$row_barang['idbarang'].'.png" alt="" style="width: 50px;"> ' . $namabarang . ', Ukuran : '.$ukuran.', Warna : '.$warna.'</td>';
+                            echo '<td class="align-middle text-left"><img src="produk/'.$row_barang['idbarang'].'.png" alt="" style="width: 50px;"> ' . $namabarang . ', Ukuran : '.$ukuran.', Warna : '.$warna.'</td>';
                             echo '<td class="align-middle">RP ' . $hargabarangs . '</td>';
                             echo '<td class="align-middle">' . $qty . '</td>';
                             echo '<td class="align-middle">RP ' . $totalhargas . '</td>';
